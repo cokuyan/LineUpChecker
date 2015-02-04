@@ -1,0 +1,81 @@
+<h1><%= @school.name %></h1>
+
+<h3>Players</h3>
+
+<table>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Rank
+    </td>
+    <td>
+      Gender
+    </td>
+  </tr>
+
+  <% @school.players.each do |player| %>
+    <tr>
+      <td>
+        <%= player.name %>
+      </td>
+      <td>
+        <%= player.rank %>
+      </td>
+      <td>
+        <%= player.gender %>
+      </td>
+      <td>
+        <%= link_to "delete", player_url(player), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<ul>
+</ul>
+
+<span class="new-player">Add Player</span>
+
+<form class="new-player-form hidden" action="/players" method="post">
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="player[name]" value="">
+
+  <label>Gender:</label>
+  <input type="radio" name="player[gender]" value="m">
+  <label for="gender_m">Male</label>
+  <input type="radio" name="player[gender]" value="f">
+  <label for="gender_f">Female</label>
+
+  <label for="rank">Rank:</label>
+  <input type="text" name="player[rank]" value="">
+
+  <input type="hidden" name="player[school_id]" value="<%= @school.id %>">
+
+  <button class="submit">Add Player</button>
+  <button class="cancel">Cancel</button>
+</form>
+
+<script charset="utf-8">
+  $(function () {
+    function initialize() {
+      $("span.new-player").on("click", displayForm)
+      $("button.cancel").on("click", hideForm)
+    };
+
+    function displayForm(event) {
+      $(event.currentTarget).addClass("hidden");
+      $("form.new-player-form").removeClass("hidden");
+    };
+
+    function hideForm(event) {
+      event.preventDefault();
+
+      $("form.new-player-form").addClass("hidden");
+      $("span.new-player").removeClass("hidden");
+    };
+
+    initialize();
+  })
+</script>

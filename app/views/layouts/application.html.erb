@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<header>
+  <%= link_to "Home", root_url %>
+  <%= link_to "Schools", schools_url %>
+  <%= link_to "Add School", new_school_url %>
+</header>
+
+<%= flash[:notice] if flash[:notice] %>
+
 <%= yield %>
 
 </body>

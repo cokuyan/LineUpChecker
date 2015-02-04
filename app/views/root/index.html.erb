@@ -1,0 +1,155 @@
+<h1>Line-up Checker</h1>
+
+<div class="line-up-checker">
+  <select class="school-name">
+    <option selected="true" disabled="disabled">Pick School</option>
+    <% @schools.each do |school| %>
+      <option value="<%= school.id %>"><%= school.name %></option>
+    <% end %>
+  </select>
+
+  <div class="check-area">
+
+  </div>
+</div>
+
+<script id="template" type="text/template">
+  <form class="checker">
+    <label for="MS1">MS 1</label>
+    <select id="MS1" name="MS[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="MS2">MS 2</label>
+    <select id="MS2" name="MS[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="WS">WS</label>
+    <select id="WS" name="WS[]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="MD1">MD 1</label>
+    <select id="MD1" name="MD[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <select id="MD1" name="MD[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="MD2">MD 2</label>
+    <select id="MD2" name="MD[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <select id="MD2" name="MD[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="WD1">WD 1</label>
+    <select id="WD1" name="WD[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <select id="WD1" name="WD[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="WD2">WD 2</label>
+    <select id="WD2" name="WD[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <select id="WD2" name="WD[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="XD1">XD 1</label>
+    <select id="XD1" name="XD[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <select id="XD1" name="XD[1][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <label for="XD2">XD 2</label>
+    <select id="XD2" name="XD[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "m" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <select id="XD2" name="XD[2][]">
+      <%% _.each(_.filter(players, function(player) { %>
+        <%% return player.gender === "f" %>
+      <%% }), function(player) { %>
+        <option><%%= player.name %> <%%= player.rank %></option>
+      <%% }) %>
+    </select>
+
+    <button class="submit">Check</button>
+  </form>
+</script>
+
+<script charset="utf-8">
+  $(function () {
+    $('.line-up-checker').checkers();
+  });
+</script>

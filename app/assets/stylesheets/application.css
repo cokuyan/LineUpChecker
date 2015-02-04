@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.hidden {
+ display: none;
+}
+
+form.checker > * {
+  display: block;
+}
+
+form.checker > label {
+  margin-top: 20px;
+}
+
+form.checker > button {
+  margin: 20px 0;
+}
+
+span.new-player {
+  color: blue;
+  cursor: pointer;
+}

@@ -1,0 +1,8 @@
+<h1>Add School</h1>
+
+<form action="/schools" method="post">
+  <label for="name">Name:</label>
+  <input type="text" name="school[name]" value="<%= @school.name %>">
+
+  <button class="submit">Add School</button>
+</form>
